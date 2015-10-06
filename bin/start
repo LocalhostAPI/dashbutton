@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export DASH_CONFIG=`cat config.json`
+sudo python app.py

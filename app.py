@@ -12,6 +12,7 @@ def arp_display(pkt):
   timestamp = time.strftime("%Y-%m-%d %H:%M")
   if pkt[ARP].op == 1: #who-has (request)
     if pkt[ARP].psrc == '0.0.0.0': # ARP Probe
+      print pkt[ARP].hwsrc
       if pkt[ARP].hwsrc == 'your_mac_here...':
         record_press()
       else:
