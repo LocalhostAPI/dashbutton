@@ -1,7 +1,3 @@
-dnet
 pypcap
 requests
 scapy
-wheel
-flask
-flask-restful
