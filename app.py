@@ -9,6 +9,7 @@ while True:
     ethernet_detailed = struct.unpack("!6s6s2s", ethernet_header)
     arp_header = packet[0][14:42]
     try:
+        print('header is', arp_header)
         arp_detailed = struct.unpack("2s2s1s1s2s6s4s6s4s", arp_header)
     except Exception as e:
         print('crashed...', e)
