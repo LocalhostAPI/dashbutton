@@ -8,7 +8,11 @@ while True:
     ethernet_header = packet[0][0:14]
     ethernet_detailed = struct.unpack("!6s6s2s", ethernet_header)
     arp_header = packet[0][14:42]
-    arp_detailed = struct.unpack("2s2s1s1s2s6s4s6s4s", arp_header)
+    try:
+        arp_detailed = struct.unpack("2s2s1s1s2s6s4s6s4s", arp_header)
+    except as e:
+        print('crashed...', e)
+
     ethertype = ethernet_detailed[2]
 
     # skip non-ARP packets
@@ -27,12 +31,12 @@ while True:
     if source_mac == 'ac63be53a3d2':
         print("smartwater")
     elif source_mac == '44650d407cc4':
-            print("snuggle")
+        print("snuggle")
     elif source_mac == 'ac63be63ae23':
-            print("blank")
+        print("blank")
     elif source_mac == '74c24682a64a':
-            print("elements")
+        print("elements")
     elif source_mac == 'f0272da4079f':
-            print("angel_soft")
+        print("angel_soft")
     else:
         print "Other arp request, IP = " + dest_ip + " and mac = " + source_mac
